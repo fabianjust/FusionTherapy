@@ -1,0 +1,92 @@
+subject structure: Description
+
+subject.movement
+	Contains raw EMG and MoCap data for every movement (abduction, shoulder flexion, etc...)
+
+movement.condition
+	Contains raw EMG and MoCap data for every condition of selected movement
+
+condition.repetition
+	Contains raw EMG and MoCap data for every repetition of selected movement&condition
+
+repetition.t_start
+	Vector of starting times.
+repetition.t_stop
+	Vector of stopping times
+repetition.moc_start
+	Starting times converted to mocap indices
+repetition.mov_stop
+repetition.jointAngles
+	Joint Angles during each repetition. Rows: Frames, Cols: Different axes
+repetition.joint_angles_resized
+	Joint angles resized to 240 Frames (bilinear interpolation)
+repetition.jointVelocities
+	Central finite difference of jointAngles
+repetition.jointVelocitiesResized
+repetition.jointAccelerations
+	Central finite difference of jointVelocities
+repetition.maxAbsJointVelocities
+	Maximum absolute joint velocity of each axis
+reptition.maxAbsJointAcceleration
+	*
+repetition.meanJointVelocity
+	Mean joint velocity for each axis over all frames
+repetition.moc_hand
+	Global coordinates of hand marker for every frame
+repetition.moc_descr
+	Description of mocap columns
+repetition.moc_Fs
+	Sampling Freq. Mocap
+repetition.emgraw_start
+	t_start/stop converted to emg frame indices
+repetition.emg_SRE
+	Smoothed rectified EMG signal. (10Hz-500Hz bandpass, moving average with N=500 --> approx 4hz 	cutoff.
+repetition.emg_resized
+	EMG signal resized by bilinear interpolation to 4000 frames
+repetition.emg_descr
+	Description of emg array columns
+repetition.emgraw_Fs
+	EMG sampling frequency
+repetition.bpm
+	Metronome bpm (60 or 50!)
+
+condition.name
+	Name of conditoin
+condition.emg_mean
+	mean of repetitoin.emg_resized ofer all repetitions
+condition.jointAngles_mean
+	mean of repeition.joint_angles_resized over 12 repetitions
+condition.joinVelocities_mean
+	mean of repetition.jointVelocitiesResized over 12 repetitions
+condition.jointVelocities_meanmean
+	mean of repetition.meanJointVelocity over 12 repetitions
+condition.jointVelocities_meanmax
+	mean of repetition.maxJointVelocities over 12 repetitions
+conditions.jointAccelerations_meanmax
+	*
+conditions.emg_std
+	standard deviation of emg signal over 12 repetitions. (For frame i and muscle j, std deviation 	of repetitions 1 to N_rep
+conditions.jointAngles_std
+ 	Same for joint angles
+condition.emg_cfiwidth
+	Width of confidence interval (computed out of standard deviation fiels
+condition.jointAngles_cfiwidth
+	Same for joint angles
+
+subject.metainfo
+	Saves metainformation data such as age, height, muscles tested, date, etc...
+
+subject.muscle_info
+	Contains MVC information.
+muscle_info.name
+	Name of muscle
+muscle_info.mvc_name
+	Name of corresponding mvc test (for muscle with name)
+muscle_info.mvc
+	MVC constant for corresponding muscle
+
+subject.movementRES
+	Contains processed emg data --> mean emg signals with baseline subtracted and MVC normed etc...
+
+
+

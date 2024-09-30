@@ -1,0 +1,16 @@
+emg_plt examples
+
+###Constructor
+emg_plt(SUBJECT)
+
+###Plot Types
+plotRaw(n_mov, n_con, n_mus, bool_SRE, bool_startstop)
+plotRep(obj, n_mov, n_con, n_mus, boolResized, boolMvc, boolMean, boolCfi)
+plotComp(obj,n_mov,n_mus, boolBaseline)
+plotDTW(obj,n_mov, n_mus, type, boolDeform)
+
+###Drawing
+draw(obj,linkAxes,row,col)
+remAxis(obj,numAx)
+newFigure(obj)
+save(obj,name)
